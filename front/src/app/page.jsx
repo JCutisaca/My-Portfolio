@@ -15,6 +15,7 @@ import Age from "@/components/Age/Age";
 import LinkedIn from "@/components/LinkedIn/LinkedIn";
 import SpotifyCard from "@/components/Spotify/Spotify";
 import Projects from "@/components/Projects/Projects";
+import Weather from "@/components/Weather/Weather";
 
 
 i18n
@@ -68,6 +69,7 @@ export default function Home() {
             <Projects></Projects>
             <Language></Language>
             <Language></Language>
+            <Weather></Weather>
             <Language></Language>
             <Language></Language>
             <Language></Language>

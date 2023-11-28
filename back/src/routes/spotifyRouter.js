@@ -3,7 +3,7 @@ const { getCurrentTrackHandler, getAuthorizationHandler } = require("../handlers
 
 const spotifyRouter = Router();
 
-spotifyRouter.get("/spotify/login", getAuthorizationHandler);
-spotifyRouter.get("/spotify/track", getCurrentTrackHandler)
+spotifyRouter.get("/login", getAuthorizationHandler);
+spotifyRouter.get("/track", getCurrentTrackHandler);
 
 module.exports = spotifyRouter;
