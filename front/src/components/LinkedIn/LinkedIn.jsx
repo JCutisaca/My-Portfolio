@@ -1,5 +1,5 @@
-import IconLinkedIn from './IconLinkedIn'
-import ExternalLinkIcon from './ExternalLinkIcon'
+import IconLinkedIn from '../Utils/IconLinkedIn'
+import ExternalLinkIcon from '../Utils/ExternalLinkIcon'
 
 export default function LinkedIn() {
     return (

@@ -14,6 +14,7 @@ import { ThemeProvider } from "next-themes";
 import Age from "@/components/Age/Age";
 import LinkedIn from "@/components/LinkedIn/LinkedIn";
 import SpotifyCard from "@/components/Spotify/Spotify";
+import Projects from "@/components/Projects/Projects";
 
 
 i18n
@@ -35,10 +36,12 @@ i18n
   });
 
 export default function Home() {
+
   useEffect(() => {
     const language = localStorage.getItem("language");
     i18n.changeLanguage(language);
   }, []);
+  
   return (
     <>
       <ThemeProvider
@@ -62,12 +65,13 @@ export default function Home() {
             <Age></Age>
             <LinkedIn></LinkedIn>
             <SpotifyCard></SpotifyCard>
-            {/* <Language></Language>
+            <Projects></Projects>
             <Language></Language>
             <Language></Language>
             <Language></Language>
             <Language></Language>
-            <Language></Language> */}
+            <Language></Language>
+            <Language></Language>
           </div>
         </motion.div>
       </ThemeProvider>
