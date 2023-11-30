@@ -3,8 +3,10 @@ import styles from './Language.module.css'
 import { useEffect, useState } from 'react';
 
 export default function Language() {
+    
     const [t, i18n] = useTranslation("global");
     const [language, setLanguage] = useState('en')
+
     const handleLanguage = () => {
         if (language === 'en') {
             i18n.changeLanguage('es')
@@ -26,12 +28,9 @@ export default function Language() {
             i18n.changeLanguage("en");
         }
     }, []);
+
     return (
-        <div
-            onClick={handleLanguage}
-            className={styles.container}
-        // className="flex flex-col justify-center items-center bg-[#1c053a9c] dark:bg-[#af72ff56] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer hover:scale-[103%] transition duration-300 ease-in-out"
-        >
+        <div onClick={handleLanguage} className={styles.container}>
             <p className="font-semibold uppercase text-white dark:text-white text-5xl md:text-8xl">
                 {language}
             </p>

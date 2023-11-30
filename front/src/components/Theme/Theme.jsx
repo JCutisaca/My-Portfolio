@@ -22,8 +22,8 @@ export default function Theme() {
     }
   }, [theme, resolvedTheme]);
 
-  const handleChange = (e) => {
-    const checked = e.target.checked;
+  const handleChange = (event) => {
+    const checked = event.target.checked;
     if (checked) {
       setChecked(true);
       setTheme("light");
