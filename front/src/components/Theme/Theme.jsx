@@ -35,20 +35,14 @@ export default function Theme() {
 
   return (
     <div className="flex justify-center items-center bg-[#1c053a9c] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm">
-      <div className={styles["checkbox-wrapper-5"]}>
-        <div className={styles.check}>
-          <input
-            type="checkbox"
-            id="check-5"
-            value={checked}
-            checked={checked}
-            onChange={handleChange}
-            name="theme"
-            aria-label="Theme"
-          />
-          <label name="themelabel" htmlFor="check-5"></label>
-        </div>
-      </div>
+      <label className={styles.switch}>
+        <input type="checkbox"
+          value={checked}
+          checked={checked}
+          onChange={handleChange}
+        />
+        <span class={styles.slider}></span>
+      </label>
     </div>
   );
 }

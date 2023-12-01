@@ -1,0 +1,36 @@
+.sun {
+    position: absolute;
+    top: -6%;
+    left: 65%;
+    border-radius: 100%;
+    background: linear-gradient(to bottom left,
+        rgba(255, 235, 59, 1) 0%,
+        rgba(249, 168, 37, 1) 90%);
+    box-shadow: 0px 0px 20px 20px rgba(255, 160, 0, 1);
+    animation: sunOpacity 3s infinite linear;
+  }
+
+.moon {
+    position: absolute;
+    top: -6%;
+    left: 65%;
+    border-radius: 100%;
+  }
+  
+  .moonBorder {
+    position: absolute;
+    top: -6%;
+    left: 65%;
+    border-radius: 100%;
+    box-shadow: 0px 0px 20px 20px rgba(197, 206, 215, 0.5);
+  }
+  
+  @keyframes sunOpacity {
+    50% {
+      opacity: 0.7;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
