@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1.25rem;
+}
+
+.container {
+    width: 100%;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        padding-right: 5rem;
+        padding-left: 5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 40rem;
+    gap: 12px;
+}
+
+.containerForm {
+    background-color: #1c053a9c;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    max-width: 42rem;
+    border-radius: 1.5rem;
+}
