@@ -10,13 +10,16 @@ export default function Language() {
     const handleLanguage = () => {
         if (language === 'en') {
             i18n.changeLanguage('es')
-            setLanguage('es')
+            setLanguage('es');
+            localStorage.setItem("language", "es");
         }
         if (language === 'es') {
             i18n.changeLanguage('en')
-            setLanguage('en')
+            setLanguage('en');
+            localStorage.setItem("language", "en");
         }
     }
+    
     useEffect(() => {
         const item = localStorage.getItem("language");
         if (item) {
