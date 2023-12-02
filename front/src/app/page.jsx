@@ -16,6 +16,7 @@ import LinkedIn from "@/components/LinkedIn/LinkedIn";
 import SpotifyCard from "@/components/Spotify/Spotify";
 import Projects from "@/components/Projects/Projects";
 import Weather from "@/components/Weather/Weather";
+import Contact from "@/components/Contact/Contact";
 
 
 i18n
@@ -68,6 +69,7 @@ export default function Home() {
             <LinkedIn></LinkedIn>
             <SpotifyCard></SpotifyCard>
             <Projects></Projects>
+            <Contact></Contact>
             <Language></Language>
             <Language></Language>
             <Weather></Weather>

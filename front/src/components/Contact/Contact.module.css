@@ -3,18 +3,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1c053a9c;
     border-radius: 1.5rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    grid-column: span 1;
+    background: linear-gradient(to right, #000428, #004e92);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-    aspect-ratio: 1 / 1;
-    grid-column: span 1 / span 1;
-  }
-  
-  .container:hover {
+}
+
+.container:hover {
     transform: scale(1.03);
-  }
-  
+}
+
+.icon {
+    max-width: 70%;
+}
