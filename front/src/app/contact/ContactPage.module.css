@@ -81,3 +81,8 @@
     max-width: 42rem;
     border-radius: 1.5rem;
 }
+
+.message {
+    background-color: white;
+    color: black;
+}

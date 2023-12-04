@@ -5,5 +5,19 @@
         "years-old": "años",
         "time": "dias para mi cumpleaños"
     },
-    "projectsTitle": "Proyectos"
+    "projectsTitle": "Proyectos",
+    "textToolbar": {
+        "bold": "Negrita",
+        "italic": "Cursiva",
+        "underline": "Subrayado",
+        "align": "Alinear",
+        "alignLeft": "Alinear a la izquierda",
+        "alignCenter": "Centrar",
+        "alignRight": "Alinear a la derecha",
+        "strike": "Tachar",
+        "blockquote": "Cita",
+        "list": "Lista numerada",
+        "bullet": "Lista con viñetas",
+        "clean": "Quitar formato"
+    }
 }

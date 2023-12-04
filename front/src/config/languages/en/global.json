@@ -5,5 +5,19 @@
         "years-old": "years old",
         "time": "days to my birthday"
     },
-    "projectsTitle": "Projects"
+    "projectsTitle": "Projects",
+    "textToolbar": {
+        "bold": "Bold",
+        "italic": "Italic",
+        "underline": "Underline",
+        "align": "Align",
+        "alignLeft": "Align left",
+        "alignCenter": "Align center",
+        "alignRight": "Align right",
+        "strike": "Strikethrough",
+        "blockquote": "Quote",
+        "list": "Numbered list",
+        "bullet": "Bulleted list",
+        "clean": "Remove formatting"
+    }
 }

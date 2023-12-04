@@ -1,24 +1,42 @@
-import styles from './ContactForm.module.css';
+"use client"
+import { useEffect, useState } from 'react';
+import styles from './ContactPage.module.css';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import ContactForm from '@/components/ContactForm/ContactForm';
+import global_en from '@/config/languages/en/global.json'
+import global_es from '@/config/languages/es/global.json'
 
-export default function ContactForm() {
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: {
+        global: global_en,
+      },
+      es: {
+        global: global_es,
+      },
+    },
+    lng: "en",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false
+    }
+  });
+
+export default function ContactPage() {
+
+    useEffect(() => {
+        const language = localStorage.getItem("language");
+        i18n.changeLanguage(language);
+    }, []);
+
 
     return (
         <div className={styles.container}>
-            <div className={styles.containerForm}>
-                <form className={styles.form} action="/enviar-formulario" method="post">
-                    <label for="nombre">Nombre Completo:</label>
-                    <input type="text" id="nombre" name="nombre" required />
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required />
-                    <label for="asunto">Asunto:</label>
-                    <input type="text" id="asunto" name="asunto" required />
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                    <label for="telefono">Teléfono (Opcional):</label>
-                    <input type="tel" id="telefono" name="telefono" />
-                    <button type="submit">Enviar Mensaje</button>
-                </form>
-            </div>
+            <ContactForm></ContactForm>
         </div>
     )
 }
