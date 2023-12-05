@@ -41,7 +41,7 @@ export default function Theme() {
           checked={checked}
           onChange={handleChange}
         />
-        <span class={styles.slider}></span>
+        <span className={styles.slider}></span>
       </label>
     </div>
   );
