@@ -1,11 +1,16 @@
 "use client"
-import { useEffect, useState } from 'react';
 import styles from './ContactPage.module.css';
 import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
+import { initReactI18next, useTranslation } from "react-i18next";
+import { ThemeProvider } from 'next-themes';
 import ContactForm from '@/components/ContactForm/ContactForm';
 import global_en from '@/config/languages/en/global.json'
 import global_es from '@/config/languages/es/global.json'
+import Theme from '@/components/Theme/Theme';
+import { useEffect } from 'react';
+import Link from 'next/link';
+import ArrowIcon from '@/components/Utils/ArrowIcon';
+import Language from '@/components/Language/Language';
 
 
 i18n
@@ -28,15 +33,34 @@ i18n
 
 export default function ContactPage() {
 
-    useEffect(() => {
-        const language = localStorage.getItem("language");
-        i18n.changeLanguage(language);
-    }, []);
+  const [t, i18n] = useTranslation("global");
+
+  useEffect(() => {
+    const language = localStorage.getItem("language");
+    i18n.changeLanguage(language);
+  }, []);
 
 
-    return (
-        <div className={styles.container}>
-            <ContactForm></ContactForm>
+  return (
+    <ThemeProvider
+      attribute="class"
+      enableSystem={true}
+      defaultTheme="system"
+    >
+      <div className={styles.container}>
+        <Link
+          href="/">
+          <ArrowIcon></ArrowIcon>
+        </Link>
+        <div className="w-full col-span-3 md:col-span-4 aspect-2/1 md:aspect-auto flex justify-between items-center bg-[#1c053a9c] dark:bg-[#af72ff56] rounded-3xl overflow-hidden flex-col">
+          <h1 className="text-white uppercase font-bold text-2xl md:text-5xl ml-4 flex gap-1 md:gap-4 justify-center items-center">
+            {t("contact.title")}
+          </h1>
         </div>
-    )
+        <Language></Language>
+        <Theme></Theme>
+        <ContactForm></ContactForm>
+      </div>
+    </ThemeProvider>
+  )
 }

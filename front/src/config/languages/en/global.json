@@ -19,5 +19,14 @@
         "list": "Numbered list",
         "bullet": "Bulleted list",
         "clean": "Remove formatting"
+    },
+    "contact" : {
+        "title": "Contact",
+        "name": "Full Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message",
+        "phone": "Phone (Optional)",
+        "submit": "Send Message"
     }
 }

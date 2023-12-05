@@ -19,5 +19,14 @@
         "list": "Lista numerada",
         "bullet": "Lista con viñetas",
         "clean": "Quitar formato"
+    },
+    "contact" : {
+        "title": "Contacto",
+        "name": "Nombre Completo",
+        "email": "Email",
+        "subject": "Asunto",
+        "message": "Mensaje",
+        "phone": "Teléfono (Opcional)",
+        "submit": "Enviar Mensaje"
     }
 }

@@ -1,6 +1,10 @@
+import { usePathname } from "next/navigation";
+
+
 
 
 export default function ArrowIcon() {
+    const pathname = usePathname();
     return (
         <div>
             <svg
@@ -8,7 +12,9 @@ export default function ArrowIcon() {
                 fill="currentColor"
                 strokeWidth="0"
                 viewBox="0 0 16 16"
-                className="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-white dark:text-[#ffffffaa] z-10 text-4xl"
+                className={pathname !== "/contact"
+                    ? "absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-white dark:text-[#ffffffaa] z-10 text-4xl"
+                    : "absolute left-4 bottom-4 top-8 md:left-8 md:top-8 text-white dark:text-[#ffffffaa] z-10 text-4xl rotate-180"}
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg">
