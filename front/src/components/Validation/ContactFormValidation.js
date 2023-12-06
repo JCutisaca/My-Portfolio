@@ -48,7 +48,7 @@ export const validateMessage = (form, setErrors, errors) => {
     if (!message.length) {
         setErrors({
             ...errors,
-            message: "Errors.messageEmpty"
+            message: "errors.messageEmpty"
         })
     } else {
         setErrors({

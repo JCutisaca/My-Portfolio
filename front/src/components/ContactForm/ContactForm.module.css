@@ -86,3 +86,8 @@
     background-color: white;
     /* color: black; */
 }
+
+.errorMessage {
+    color: red;
+    z-index: 3;
+}

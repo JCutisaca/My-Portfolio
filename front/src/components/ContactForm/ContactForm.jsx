@@ -58,8 +58,6 @@ export default function ContactForm() {
         })
     }
 
-    console.log(errors);
-
     useEffect(() => {
         setInterval(() => {
 
