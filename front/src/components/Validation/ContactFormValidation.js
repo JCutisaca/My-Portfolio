@@ -1,3 +1,5 @@
+const regexCharacters = /^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ, ]+$/;
+const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
 export const validateFullName = (form, setErrors, errors) => {
@@ -7,6 +9,21 @@ export const validateFullName = (form, setErrors, errors) => {
             ...errors,
             fullName: "errors.fullNameEmpty"
         })
+        return;
+    }
+    if (fullName.length < 5) {
+        setErrors({
+            ...errors,
+            fullName: "errors.fullNameShort"
+        })
+        return;
+    }
+    if (!regexCharacters.test(fullName)) {
+        setErrors({
+            ...errors,
+            fullName: "errors.fullNameInvalid"
+        })
+        return;
     } else {
         setErrors({
             ...errors,
@@ -21,6 +38,14 @@ export const validateEmail = (form, setErrors, errors) => {
             ...errors,
             email: "errors.emailEmpty"
         })
+        return;
+    }
+    if (!regexEmail.test(email)) {
+        setErrors({
+            ...errors,
+            email: "errors.emailInvalid"
+        })
+        return;
     } else {
         setErrors({
             ...errors,
@@ -28,6 +53,7 @@ export const validateEmail = (form, setErrors, errors) => {
         })
     }
 }
+
 export const validateSubject = (form, setErrors, errors) => {
     const subject = form.subject.trim();
     if (!subject) {
@@ -35,6 +61,21 @@ export const validateSubject = (form, setErrors, errors) => {
             ...errors,
             subject: "errors.subjectEmpty"
         })
+        return;
+    }
+    if (subject.length < 5) {
+        setErrors({
+            ...errors,
+            subject: "errors.subjectShort"
+        })
+        return;
+    }
+    if (!regexCharacters.test(subject)) {
+        setErrors({
+            ...errors,
+            subject: "errors.subjectInvalid"
+        })
+        return;
     } else {
         setErrors({
             ...errors,
@@ -50,25 +91,22 @@ export const validateMessage = (form, setErrors, errors) => {
             ...errors,
             message: "errors.messageEmpty"
         })
+    }
+    if (message.length < 10) {
+        setErrors({
+            ...errors,
+            message: "errors.messageShort"
+        })
+    } 
+    if (message.length > 1000) {
+        setErrors({
+            ...errors,
+            message: "errors.messageLong"
+        })
     } else {
         setErrors({
             ...errors,
             message: ""
-        })
-    }
-}
-
-export const validatePhone = (form, setErrors, errors) => {
-    const phone = form.phone.trim();
-    if (!phone.length) {
-        setErrors({
-            ...errors,
-            phone: "errors.phoneLength"
-        })
-    } else {
-        setErrors({
-            ...errors,
-            phone: ""
         })
     }
 }

@@ -91,3 +91,7 @@
     color: red;
     z-index: 3;
 }
+
+.swalError {
+    min-width: 300px;
+}

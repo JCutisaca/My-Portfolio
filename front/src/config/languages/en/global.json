@@ -20,20 +20,29 @@
         "bullet": "Bulleted list",
         "clean": "Remove formatting"
     },
-    "contact" : {
+    "contact": {
         "title": "Contact",
         "name": "Full Name",
         "email": "Email",
         "subject": "Subject",
         "message": "Message",
-        "phone": "Phone (Optional)",
-        "submit": "Send Message"
+        "submit": "Send Message",
+        "sentTitle": "Sent!",
+        "sentMessage": "Your information has been successfully submitted! Excited to connect with you soon. 🚀"
     },
-    "errors" : {
-        "fullNameEmpty": "Full name cannot be empty",
-        "emailEmpty": "Email cannot be empty",
-        "subjectEmpty": "Subject cannot be empty",
-        "messageEmpty": "Message cannot be empty",
-        "phoneLength": "despues"
+    "errors": {
+        "fullNameEmpty": "Full name cannot be empty.",
+        "emailEmpty": "Email cannot be empty.",
+        "subjectEmpty": "Subject cannot be empty.",
+        "messageEmpty": "Message cannot be empty.",
+        "fullNameShort": "Name must be at least 5 characters long.",
+        "fullNameInvalid": "Name cannot contain special characters.",
+        "emailInvalid": "Invalid email address entered.",
+        "subjectShort": "Subject must be at least 5 characters long.",
+        "subjectInvalid": "Subject cannot contain special characters.",
+        "messageShort": "Message must be at least 10 characters long.",
+        "messageLong": "Message cannot exceed 1000 characters.",
+        "errorTitle": "Oops!",
+        "errorMessage": "There was an issue sending your message. Please try again."
     }
 }

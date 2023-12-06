@@ -20,20 +20,29 @@
         "bullet": "Lista con viñetas",
         "clean": "Quitar formato"
     },
-    "contact" : {
+    "contact": {
         "title": "Contacto",
         "name": "Nombre Completo",
         "email": "Email",
         "subject": "Asunto",
         "message": "Mensaje",
-        "phone": "Teléfono (Opcional)",
-        "submit": "Enviar Mensaje"
+        "submit": "Enviar Mensaje",
+        "sentTitle": "¡Enviado!",
+        "sentMessage": "¡Tu información ha sido enviada con éxito! Estoy emocionado de conectar contigo pronto. 🚀"
     },
-    "errors" : {
-        "fullNameEmpty": "El nombre no puede estar vacío",
-        "emailEmpty": "El correo no puede estar vacío",
-        "subjectEmpty": "El asunto no puede estar vacío",
-        "messageEmpty": "El mensaje no puede estar vacío",
-        "phoneLength": "despues"
+    "errors": {
+        "fullNameEmpty": "El nombre no puede estar vacío.",
+        "emailEmpty": "El correo no puede estar vacío.",
+        "subjectEmpty": "El asunto no puede estar vacío.",
+        "messageEmpty": "El mensaje no puede estar vacío.",
+        "fullNameShort": "El nombre debe tener al menos 5 caracteres.",
+        "fullNameInvalid": "El nombre no puede contener caracteres especiales.",
+        "emailInvalid": "La dirección de correo electrónico ingresada no es válida.",
+        "subjectShort": "El asunto debe tener al menos 5 caracteres.",
+        "subjectInvalid": "El asunto no puede contener caracteres especiales.",
+        "messageShort": "El mensaje debe tener al menos 10 caracteres.",
+        "messageLong": "El mensaje no puede exceder los 1000 caracteres.",
+        "errorTitle": "¡Oops!",
+        "errorMessage": "Hubo un problema al enviar tu mensaje. Por favor, inténtalo nuevamente."
     }
 }

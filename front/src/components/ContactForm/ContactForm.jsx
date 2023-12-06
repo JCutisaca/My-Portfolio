@@ -3,7 +3,9 @@ import styles from './ContactForm.module.css';
 import 'react-quill/dist/quill.snow.css';
 import { useTranslation } from 'react-i18next';
 import dynamic from 'next/dynamic';
-import { validateEmail, validateFullName, validateMessage, validatePhone, validateSubject } from '../Validation/ContactFormValidation';
+import { validateEmail, validateFullName, validateMessage, validateSubject } from '../Validation/ContactFormValidation';
+import { postContact } from '@/apiRequests/postContact';
+import Swal from 'sweetalert2';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -16,16 +18,14 @@ export default function ContactForm() {
         fullName: "",
         email: "",
         subject: "",
-        message: "",
-        phone: ""
+        message: ""
     });
 
     const [errors, setErrors] = useState({
         fullName: "",
         email: "",
         subject: "",
-        message: "",
-        phone: ""
+        message: ""
     });
 
     const handleChange = (event) => {
@@ -47,15 +47,42 @@ export default function ContactForm() {
     const handleBlurMessage = () => {
         validateMessage(form, setErrors, errors)
     }
-    const handleBlurPhone = () => {
-        validatePhone(form, setErrors, errors)
-    }
 
     const handleMessage = (value) => {
         setForm({
             ...form,
             message: value
         })
+    }
+
+    const handleSubmit = async (event) => {
+        try {
+            event.preventDefault();
+            await postContact(form)
+            Swal.fire({
+                title: t("contact.sentTitle"),
+                text: t("contact.sentMessage"),
+                icon: "success"
+            });
+        } catch (error) {
+            console.log(error.response.data);
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "bottom-start",
+                showConfirmButton: false,
+                timer: 5000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "error",
+                title: t("errors.errorTitle"),
+                text: t("errors.errorMessage")
+            });
+        }
     }
 
     useEffect(() => {
@@ -108,15 +135,15 @@ export default function ContactForm() {
 
     return (
         <div className={styles.containerForm}>
-            <form className={styles.form} action="/enviar-formulario" method="post">
+            <form onSubmit={handleSubmit} className={styles.form}>
                 <label htmlFor="name">{t("contact.name")}:</label>
-                <input value={form.fullName} onBlur={handleBlurFullName} onChange={handleChange} type="text" id="fullName" name="fullName" required />
+                <input maxLength="30" value={form.fullName} onBlur={handleBlurFullName} onChange={handleChange} type="text" id="fullName" name="fullName" required />
                 {errors.fullName ? <p className={styles.errorMessage}>{t(`${errors.fullName}`)}</p> : <p>&nbsp;</p>}
                 <label htmlFor="email">{t("contact.email")}:</label>
-                <input value={form.email} onBlur={handleBlurEmail} onChange={handleChange} type="email" id="email" name="email" required />
+                <input maxLength="50" value={form.email} onBlur={handleBlurEmail} onChange={handleChange} type="email" id="email" name="email" required />
                 {errors.email ? <p className={styles.errorMessage}>{t(`${errors.email}`)}</p> : <p>&nbsp;</p>}
                 <label htmlFor="subject">{t("contact.subject")}:</label>
-                <input value={form.subject} onBlur={handleBlurSubject} onChange={handleChange} type="text" id="subject" name="subject" required />
+                <input maxLength="30" value={form.subject} onBlur={handleBlurSubject} onChange={handleChange} type="text" id="subject" name="subject" required />
                 {errors.subject ? <p className={styles.errorMessage}>{t(`${errors.subject}`)}</p> : <p>&nbsp;</p>}
                 <label htmlFor="message">{t("contact.message")}:</label>
                 <ReactQuill
@@ -140,9 +167,6 @@ export default function ContactForm() {
                     }}
                 />
                 {errors.message ? <p className={styles.errorMessage}>{t(`${errors.message}`)}</p> : <p>&nbsp;</p>}
-                <label htmlFor="phone">{t("contact.phone")}:</label>
-                <input value={form.phone} onBlur={handleBlurPhone} onChange={handleChange} type="number" id="phone" name="phone" />
-                {errors.phone ? <p className={styles.errorMessage}>{t(`${errors.phone}`)}</p> : <p>&nbsp;</p>}
                 <button type="submit">{t("contact.submit")}</button>
             </form>
         </div>
