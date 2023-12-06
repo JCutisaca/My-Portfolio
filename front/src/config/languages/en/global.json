@@ -28,5 +28,12 @@
         "message": "Message",
         "phone": "Phone (Optional)",
         "submit": "Send Message"
+    },
+    "errors" : {
+        "fullNameEmpty": "Full name cannot be empty",
+        "emailEmpty": "Email cannot be empty",
+        "subjectEmpty": "SubjectSubject cannot be empty",
+        "messageEmpty": "Message cannot be empty",
+        "phoneLength": "despues"
     }
 }

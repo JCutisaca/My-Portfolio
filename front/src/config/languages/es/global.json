@@ -28,5 +28,12 @@
         "message": "Mensaje",
         "phone": "Teléfono (Opcional)",
         "submit": "Enviar Mensaje"
+    },
+    "errors" : {
+        "fullNameEmpty": "El nombre no puede estar vacío",
+        "emailEmpty": "El correo no puede estar vacío",
+        "subjectEmpty": "El asunto no puede estar vacío",
+        "messageEmpty": "El mensaje no puede estar vacío",
+        "phoneLength": "despues"
     }
 }

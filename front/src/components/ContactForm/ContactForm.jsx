@@ -3,6 +3,7 @@ import styles from './ContactForm.module.css';
 import 'react-quill/dist/quill.snow.css';
 import { useTranslation } from 'react-i18next';
 import dynamic from 'next/dynamic';
+import { validateEmail, validateFullName, validateMessage, validatePhone, validateSubject } from '../Validation/ContactFormValidation';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -10,11 +11,55 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 export default function ContactForm() {
 
     const [t, i18n] = useTranslation("global");
-    const [message, setMessage] = useState('');
-    const handleMessage = (value) => {
-        setMessage(value)
+
+    const [form, setForm] = useState({
+        fullName: "",
+        email: "",
+        subject: "",
+        message: "",
+        phone: ""
+    });
+
+    const [errors, setErrors] = useState({
+        fullName: "",
+        email: "",
+        subject: "",
+        message: "",
+        phone: ""
+    });
+
+    const handleChange = (event) => {
+        setForm({
+            ...form,
+            [event.target.name]: event.target.value
+        })
+    };
+
+    const handleBlurFullName = () => {
+        validateFullName(form, setErrors, errors)
     }
-    
+    const handleBlurEmail = () => {
+        validateEmail(form, setErrors, errors)
+    }
+    const handleBlurSubject = () => {
+        validateSubject(form, setErrors, errors)
+    }
+    const handleBlurMessage = () => {
+        validateMessage(form, setErrors, errors)
+    }
+    const handleBlurPhone = () => {
+        validatePhone(form, setErrors, errors)
+    }
+
+    const handleMessage = (value) => {
+        setForm({
+            ...form,
+            message: value
+        })
+    }
+
+    console.log(errors);
+
     useEffect(() => {
         setInterval(() => {
 
@@ -67,16 +112,20 @@ export default function ContactForm() {
         <div className={styles.containerForm}>
             <form className={styles.form} action="/enviar-formulario" method="post">
                 <label htmlFor="name">{t("contact.name")}:</label>
-                <input type="text" id="name" name="name" required />
+                <input value={form.fullName} onBlur={handleBlurFullName} onChange={handleChange} type="text" id="fullName" name="fullName" required />
+                {errors.fullName ? <p className={styles.errorMessage}>{t(`${errors.fullName}`)}</p> : <p>&nbsp;</p>}
                 <label htmlFor="email">{t("contact.email")}:</label>
-                <input type="email" id="email" name="email" required />
+                <input value={form.email} onBlur={handleBlurEmail} onChange={handleChange} type="email" id="email" name="email" required />
+                {errors.email ? <p className={styles.errorMessage}>{t(`${errors.email}`)}</p> : <p>&nbsp;</p>}
                 <label htmlFor="subject">{t("contact.subject")}:</label>
-                <input type="text" id="subject" name="subject" required />
+                <input value={form.subject} onBlur={handleBlurSubject} onChange={handleChange} type="text" id="subject" name="subject" required />
+                {errors.subject ? <p className={styles.errorMessage}>{t(`${errors.subject}`)}</p> : <p>&nbsp;</p>}
                 <label htmlFor="message">{t("contact.message")}:</label>
                 <ReactQuill
                     className={`${styles.message} bg-[#282828] dark:bg-[#282828] color-[#282828] dark:color-[#FFF]`}
                     theme="snow"
-                    value={message}
+                    value={form.message}
+                    onBlur={handleBlurMessage}
                     onChange={handleMessage}
                     modules={{
                         toolbar: [
@@ -92,8 +141,10 @@ export default function ContactForm() {
                         ]
                     }}
                 />
+                {errors.message ? <p className={styles.errorMessage}>{t(`${errors.message}`)}</p> : <p>&nbsp;</p>}
                 <label htmlFor="phone">{t("contact.phone")}:</label>
-                <input type="tel" id="phone" name="phone" />
+                <input value={form.phone} onBlur={handleBlurPhone} onChange={handleChange} type="number" id="phone" name="phone" />
+                {errors.phone ? <p className={styles.errorMessage}>{t(`${errors.phone}`)}</p> : <p>&nbsp;</p>}
                 <button type="submit">{t("contact.submit")}</button>
             </form>
         </div>
