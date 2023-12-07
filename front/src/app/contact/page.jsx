@@ -11,6 +11,8 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import ArrowIcon from '@/components/Utils/ArrowIcon';
 import Language from '@/components/Language/Language';
+import Cv from '@/components/Utils/Cv/Cv';
+import CvEs from '@/components/Utils/Cv/CvEs';
 
 
 i18n
@@ -60,6 +62,8 @@ export default function ContactPage() {
         <Language></Language>
         <Theme></Theme>
         <ContactForm></ContactForm>
+        <Cv></Cv>
+        <CvEs></CvEs>
       </div>
     </ThemeProvider>
   )

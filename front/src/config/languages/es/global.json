@@ -44,5 +44,7 @@
         "messageLong": "El mensaje no puede exceder los 1000 caracteres.",
         "errorTitle": "¡Oops!",
         "errorMessage": "Hubo un problema al enviar tu mensaje. Por favor, inténtalo nuevamente."
-    }
+    },
+    "cvEnTextDownload": "Descargar PDF en inglés",
+    "cvEsTextDownload": "Descargar PDF en español"
 }

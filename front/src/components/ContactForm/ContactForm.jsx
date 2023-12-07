@@ -36,16 +36,24 @@ export default function ContactForm() {
     };
 
     const handleBlurFullName = () => {
-        validateFullName(form, setErrors, errors)
+        // setTimeout(() => {
+            validateFullName(form, setErrors, errors)
+        // }, 1000)
     }
     const handleBlurEmail = () => {
-        validateEmail(form, setErrors, errors)
+        // setTimeout(() => {
+            validateEmail(form, setErrors, errors)
+        // }, 1000)
     }
     const handleBlurSubject = () => {
-        validateSubject(form, setErrors, errors)
+        // setTimeout(() => {
+            validateSubject(form, setErrors, errors)
+        // }, 1000)
     }
     const handleBlurMessage = () => {
-        validateMessage(form, setErrors, errors)
+        // setTimeout(() => {
+            validateMessage(form, setErrors, errors)
+        // }, 1000)
     }
 
     const handleMessage = (value) => {
@@ -64,6 +72,15 @@ export default function ContactForm() {
                 text: t("contact.sentMessage"),
                 icon: "success"
             });
+            setForm((prevForm) => {
+                return {
+                    ...prevForm,
+                    fullName: "",
+                    email: "",
+                    subject: "",
+                    message: "",
+                }
+            })
         } catch (error) {
             console.log(error.response.data);
             const Toast = Swal.mixin({
@@ -83,6 +100,21 @@ export default function ContactForm() {
                 text: t("errors.errorMessage")
             });
         }
+    }
+
+    const validateSubmit = () => {
+        if (!form.fullName.trim().length) return false
+        if (!form.email.trim().length) return false
+        if (!form.subject.trim().length) return false
+        if (!form.message.replace(/<(.|\n)*?>/g, '').trim().length) return false
+        return true
+    }
+    const validateErrors = () => {
+        if (errors.fullName.length) return true
+        if (errors.email.length) return true
+        if (errors.subject.length) return true
+        if (errors.message.length) return true
+        return false
     }
 
     useEffect(() => {
@@ -143,7 +175,7 @@ export default function ContactForm() {
                 <input maxLength="50" value={form.email} onBlur={handleBlurEmail} onChange={handleChange} type="email" id="email" name="email" required />
                 {errors.email ? <p className={styles.errorMessage}>{t(`${errors.email}`)}</p> : <p>&nbsp;</p>}
                 <label htmlFor="subject">{t("contact.subject")}:</label>
-                <input maxLength="30" value={form.subject} onBlur={handleBlurSubject} onChange={handleChange} type="text" id="subject" name="subject" required />
+                <input autoComplete='off' maxLength="30" value={form.subject} onBlur={handleBlurSubject} onChange={handleChange} type="text" id="subject" name="subject" required />
                 {errors.subject ? <p className={styles.errorMessage}>{t(`${errors.subject}`)}</p> : <p>&nbsp;</p>}
                 <label htmlFor="message">{t("contact.message")}:</label>
                 <ReactQuill
@@ -167,7 +199,9 @@ export default function ContactForm() {
                     }}
                 />
                 {errors.message ? <p className={styles.errorMessage}>{t(`${errors.message}`)}</p> : <p>&nbsp;</p>}
-                <button type="submit">{t("contact.submit")}</button>
+                <div className={styles.containerButton}>
+                    <button disabled={!validateSubmit() || validateErrors()} className={styles.submit} type="submit">{t("contact.submit")}</button>
+                </div>
             </form>
         </div>
     )
