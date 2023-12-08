@@ -46,5 +46,6 @@
         "errorMessage": "There was an issue sending your message. Please try again."
     },
     "cvEnTextDownload": "Download PDF in English",
-    "cvEsTextDownload": "Download PDF in Spanish"
+    "cvEsTextDownload": "Download PDF in Spanish",
+    "githubDescription": "Explore my GitHub to see my work in web development."
 }

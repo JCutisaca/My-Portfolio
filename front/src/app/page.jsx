@@ -17,6 +17,7 @@ import SpotifyCard from "@/components/Spotify/Spotify";
 import Projects from "@/components/Projects/Projects";
 import Weather from "@/components/Weather/Weather";
 import Contact from "@/components/Contact/Contact";
+import GitHub from "@/components/GitHub/GitHub";
 
 
 i18n
@@ -41,7 +42,6 @@ export default function Home() {
 
   useEffect(() => {
     const language = localStorage.getItem("language");
-    console.log(language);
     i18n.changeLanguage(language);
   }, []);
   
@@ -72,11 +72,11 @@ export default function Home() {
             <Contact></Contact>
             <Language></Language>
             <Language></Language>
+            <Language></Language>
             <Weather></Weather>
             <Language></Language>
             <Language></Language>
-            <Language></Language>
-            <Language></Language>
+            <GitHub></GitHub>
           </div>
         </motion.div>
       </ThemeProvider>
