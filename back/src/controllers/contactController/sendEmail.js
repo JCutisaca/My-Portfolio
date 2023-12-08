@@ -11,10 +11,10 @@ const sendEmail = async ({ fullName, email, subject, message }) => {
     const newMessage = message.replace(/<(.|\n)*?>/g, '').trim();
 
     if (!(fullName || email || subject || message)) throw Error("Missing information. Please provide all required details.");
-    if (!form.fullName.trim().length) throw Error("Full Name is required. Please provide your full name.")
-    if (!form.email.trim().length) throw Error("Email is required. Please provide your email address.")
-    if (!form.subject.trim().length) throw Error("Subject is required. Please provide a subject.")
-    if (!form.message.replace(/<(.|\n)*?>/g, '').trim().length) throw Error("Message is required. Please provide a message.")
+    if (!fullName.trim().length) throw Error("Full Name is required. Please provide your full name.")
+    if (!email.trim().length) throw Error("Email is required. Please provide your email address.")
+    if (!subject.trim().length) throw Error("Subject is required. Please provide a subject.")
+    if (!message.replace(/<(.|\n)*?>/g, '').trim().length) throw Error("Message is required. Please provide a message.")
 
     if (!regexCharacters.test(newFullname)) throw Error("Name cannot contain special characters.")
 
