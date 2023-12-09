@@ -18,6 +18,7 @@ import Projects from "@/components/Projects/Projects";
 import Weather from "@/components/Weather/Weather";
 import Contact from "@/components/Contact/Contact";
 import GitHub from "@/components/GitHub/GitHub";
+import Certificates from "@/components/Certificates/Certificates";
 
 
 i18n
@@ -71,8 +72,7 @@ export default function Home() {
             <Projects></Projects>
             <Contact></Contact>
             <Language></Language>
-            <Language></Language>
-            <Language></Language>
+            <Certificates></Certificates>
             <Weather></Weather>
             <Language></Language>
             <Language></Language>
