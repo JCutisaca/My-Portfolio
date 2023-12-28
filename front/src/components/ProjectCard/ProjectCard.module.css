@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    grid-column: span 3;
+    aspect-ratio: 1 / 1;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .container {
+        grid-column: span 1 / span 1;
+    }
+}
+
+.card {
+    border-radius: 1.5rem;
+    padding: 1rem;
+    padding-top: 2rem;
+    position: relative;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.card:hover .containerImage {
+    top: 50%;
+    padding: 0.5rem;
+}
+
+.card:hover .image {
+    transition: 0.3s ease;
+    height: 55%;
+}
+
+
+.name {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    font-size: 1.1rem;
+}
+
+.containerTags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.tags {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    border-radius: 1.5rem;
+}
+
+.containerImage {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    transition: top 0.3s ease;
+    aspect-ratio: 1 / 1;
+}
+
+.image {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+}

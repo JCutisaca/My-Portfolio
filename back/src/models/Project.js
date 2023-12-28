@@ -12,11 +12,11 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         descriptionEnglish: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         descriptionSpanish: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         image: {

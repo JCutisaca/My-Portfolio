@@ -1,7 +1,7 @@
 const { Project } = require('../../db');
 
 const postProject = async ({ name, descriptionEnglish, descriptionSpanish, image, website, gitHub, technologies }) => {
-    if (!(name.length && en && es && image.length && website.length && gitHub.length && technologies.length)) throw Error("All variables must be provided with valid values")
+    if (!(name?.length && descriptionEnglish?.length && descriptionSpanish?.length && image?.length && website?.length && gitHub?.length && technologies?.length)) throw Error("All variables must be provided with valid values")
     const createProject = await Project.create({
         name,
         descriptionEnglish,
