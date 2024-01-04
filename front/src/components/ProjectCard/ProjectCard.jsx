@@ -1,12 +1,19 @@
 import { useTranslation } from "react-i18next";
 import styles from "./ProjectCard.module.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-export default function ProjectCard({ name, descriptionEnglish, descriptionSpanish, image, website, gitHub, technologies }) {
+export default function ProjectCard({ id, name, descriptionEnglish, descriptionSpanish, image, website, gitHub, technologies }) {
 
     const [t, i18n] = useTranslation("global");
+    const router = useRouter()
+
+    const handleClick = () => {
+        router.replace(`/projects/${id}`)
+    }
+
     return (
-        <div className={styles.container}>
+        <div onClick={handleClick} className={styles.container}>
             <div className={`bg-[#1c053a9c] dark:bg-[#af72ff56] ${styles.card}`}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.description}>{i18n.language === "en" ? descriptionEnglish : descriptionSpanish}</p>
@@ -22,7 +29,7 @@ export default function ProjectCard({ name, descriptionEnglish, descriptionSpani
                         alt=""
                         src={image}
                         className={styles.image}
-                        draggable={false}
+                        // draggable={false}
                         width={1280}
                         height={720}
                         priority

@@ -45,40 +45,40 @@ export default function Home() {
     const language = localStorage.getItem("language");
     i18n.changeLanguage(language);
   }, []);
-  
+
   return (
     <>
       <ThemeProvider
-      attribute="class"
-      enableSystem={true}
-      defaultTheme="system"
+        attribute="class"
+        enableSystem={true}
+        defaultTheme="system"
       >
-        <Head>
-          <title>Jhonathan Cutisaca | FullStack Developer</title>
-        </Head>
-        <motion.div
-          initial={{ opacity: 0, y: -2000 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 100, duration: 1 }}
-          transition={{ duration: 2.5, delay: 0.5, type: "spring" }}
-          className={styles.container}>
-          <div className={styles.containerCards}>
-            <About></About>
-            <Language></Language>
-            <Theme></Theme>
-            <Age></Age>
-            <LinkedIn></LinkedIn>
-            <SpotifyCard></SpotifyCard>
-            <Projects></Projects>
-            <Contact></Contact>
-            <Language></Language>
-            <Certificates></Certificates>
-            <Weather></Weather>
-            <Language></Language>
-            <Language></Language>
-            <GitHub></GitHub>
-          </div>
-        </motion.div>
+          <Head>
+            <title>Jhonathan Cutisaca | FullStack Developer</title>
+          </Head>
+          <motion.div
+            initial={{ opacity: 0, y: -2000 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100, duration: 1 }}
+            transition={{ duration: 2.5, delay: 0.5, type: "spring" }}
+            className={styles.container}>
+            <div className={styles.containerCards}>
+              <About></About>
+              <Language></Language>
+              <Theme></Theme>
+              <Age></Age>
+              <LinkedIn></LinkedIn>
+              <SpotifyCard></SpotifyCard>
+              <Projects></Projects>
+              <Contact></Contact>
+              <Language></Language>
+              <Certificates></Certificates>
+              <Weather></Weather>
+              <Language></Language>
+              <Language></Language>
+              <GitHub></GitHub>
+            </div>
+          </motion.div>
       </ThemeProvider>
     </>
   )
