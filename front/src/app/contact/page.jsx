@@ -1,54 +1,20 @@
 "use client"
 import styles from './ContactPage.module.css';
-import i18n from "i18next";
-import { initReactI18next, useTranslation } from "react-i18next";
-import { ThemeProvider } from 'next-themes';
+import { useTranslation } from "react-i18next";
 import ContactForm from '@/components/ContactForm/ContactForm';
-import global_en from '@/config/languages/en/global.json'
-import global_es from '@/config/languages/es/global.json'
 import Theme from '@/components/Theme/Theme';
-import { useEffect } from 'react';
 import Link from 'next/link';
 import ArrowIcon from '@/components/Utils/ArrowIcon';
 import Language from '@/components/Language/Language';
 import Cv from '@/components/Utils/Cv/Cv';
 import CvEs from '@/components/Utils/Cv/CvEs';
 
-
-i18n
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: {
-        global: global_en,
-      },
-      es: {
-        global: global_es,
-      },
-    },
-    lng: "en",
-    fallbackLng: "en",
-    interpolation: {
-      escapeValue: false
-    }
-  });
-
 export default function ContactPage() {
 
   const [t, i18n] = useTranslation("global");
 
-  useEffect(() => {
-    const language = localStorage.getItem("language");
-    i18n.changeLanguage(language);
-  }, []);
-
 
   return (
-    <ThemeProvider
-      attribute="class"
-      enableSystem={true}
-      defaultTheme="system"
-    >
       <div className={styles.container}>
         <Link
           href="/">
@@ -65,6 +31,5 @@ export default function ContactPage() {
         <Cv></Cv>
         <CvEs></CvEs>
       </div>
-    </ThemeProvider>
   )
 }

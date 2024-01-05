@@ -29,7 +29,6 @@ export default function ProjectCard({ id, name, descriptionEnglish, descriptionS
                         alt=""
                         src={image}
                         className={styles.image}
-                        // draggable={false}
                         width={1280}
                         height={720}
                         priority

@@ -32,6 +32,17 @@
     height: 55%;
 }
 
+@media (max-width: 768px) {
+    .card .containerImage {
+        top: 50%;
+        padding: 0.5rem;
+    }
+    
+    .card .image {
+        transition: 0.3s ease;
+        height: 55%;
+    }
+}
 
 .name {
     font-size: 1.25rem;

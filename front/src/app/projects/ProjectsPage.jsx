@@ -1,10 +1,6 @@
 "use client"
 import styles from './ProjectsPage.module.css';
-import i18n from "i18next";
-import { initReactI18next, useTranslation } from "react-i18next";
-import { ThemeProvider } from 'next-themes';
-import global_en from '@/config/languages/en/global.json'
-import global_es from '@/config/languages/es/global.json'
+import { useTranslation } from "react-i18next";
 import Theme from '@/components/Theme/Theme';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -15,24 +11,6 @@ import { getAllProjects } from '@/apiRequests/getAllProjects';
 import { useSelector, useDispatch } from 'react-redux'
 import { getProjects } from '@/redux/features/projectsSlice';
 
-
-i18n
-    .use(initReactI18next)
-    .init({
-        resources: {
-            en: {
-                global: global_en,
-            },
-            es: {
-                global: global_es,
-            },
-        },
-        lng: "en",
-        fallbackLng: "en",
-        interpolation: {
-            escapeValue: false
-        }
-    });
 
 export default function ProjectsPage() {
 
@@ -54,18 +32,12 @@ export default function ProjectsPage() {
     }
 
     useEffect(() => {
-        const language = localStorage.getItem("language");
-        i18n.changeLanguage(language);
         fetchAllProjects()
     }, []);
 
 
     return (
-        <ThemeProvider
-            attribute="class"
-            enableSystem={true}
-            defaultTheme="system"
-        >
+        <>
             <div className={styles.container}>
                 <Link
                     href="/">
@@ -77,7 +49,7 @@ export default function ProjectsPage() {
                     </h1>
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-2 md:grid-cols-3 md:gap-4 mb-5 container mx-auto xl:px-20 ">
+            <div className="grid grid-cols-3 gap-8 md:grid-cols-3 md:gap-4 mb-5 w-[90%] mx-auto xl:w-full xl:px-20 ">
                 {allProjects?.map(({ id, name, descriptionEnglish, descriptionSpanish, image, website, gitHub, technologies }) => {
                     return (
                         <ProjectCard
@@ -96,6 +68,6 @@ export default function ProjectsPage() {
                 <Language></Language>
                 <Theme></Theme>
             </div>
-        </ThemeProvider>
+        </>
     )
 }

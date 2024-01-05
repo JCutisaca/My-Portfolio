@@ -46,8 +46,8 @@ export default function ProjectId({ params }) {
                         className="fixed z-10 w-[90%] md:w-[60%] h-[80%] md:h-[60%] top-[10%] md:top-[20%] left-[5%] md:left-[20%]">
                         <motion.div
                             layout
-                            className="w-full h-full rounded-3xl p-4 "
-                            style={{ backgroundColor: "#5183B4aa" }} // bg-[#f8efff] dark:bg-[#09030e]
+                            className="w-full h-full rounded-3xl p-4"
+                            style={{ backgroundColor: "#09030E", border: '4px solid #51b4b3aa' }} // bg-[#f8efff] dark:bg-[#09030e]
                         >
                             <div className="rrelative rounded-3xl w-full h-full p-4 md:p-8 overflow-y-scroll">
                                 <div className="absolute right-6 top-6 md:right-10 md:top-10 cursor-pointer">
@@ -73,13 +73,13 @@ export default function ProjectId({ params }) {
                                     ))}
                                 </div>
                                 <div className="flex flex-col gap-2 mt-8">
-                                    <p className="flex items-center gap-2 font-semibold">
+                                    <p className="flex items-center gap-2 font-semibold w-fit">
                                         <ExternalLinkIcon /> Website
                                     </p>
                                     <a href={projectId.website}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="underline truncate">
+                                        className="underline truncate w-fit">
                                         {projectId.website}
                                     </a>
                                 </div>
@@ -90,7 +90,7 @@ export default function ProjectId({ params }) {
                                     <a href={projectId.gitHub}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="underline truncate">
+                                        className="underline truncate  w-fit">
                                         {projectId.gitHub}
                                     </a>
                                 </div>

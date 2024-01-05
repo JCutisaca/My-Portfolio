@@ -38,7 +38,7 @@
     }
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .container {
         max-width: 768px;
     }
@@ -60,4 +60,4 @@
     .container {
         max-width: 1536px;
     }
-}
+} */

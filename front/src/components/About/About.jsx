@@ -34,6 +34,7 @@ export default function About() {
             <br />
             Enfocado en la calidad y el detalle, soy creativo, eficaz y siempre dispuesto a superar desafíos.
             <br />
+            <br />
           </>
           )}
         </p>
