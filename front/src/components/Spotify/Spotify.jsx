@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import styles from './Spotify.module.css'
 import { useTheme } from 'next-themes';
 import { getCurrentTrack } from '@/apiRequests/getCurrentTrack';

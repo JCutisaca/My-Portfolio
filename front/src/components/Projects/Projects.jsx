@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next"
 import ArrowIcon from "../Utils/ArrowIcon"
 import Link from "next/link";
 
+
 export default function Projects() {
 
     const [t, i18n] = useTranslation("global");

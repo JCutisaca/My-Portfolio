@@ -16,11 +16,12 @@
     /* height: 86%; */
     /* min-height: 152px; */
     min-height: 232px;
+    height: 1rem;
 }
 
 @media(max-width: 1023px) {
     .player {
-        min-height: 154px;
+        min-height: 152px;
     }
 }
 @media(max-width: 480px) {

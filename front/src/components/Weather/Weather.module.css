@@ -1,3 +1,5 @@
+
+
 .container {
   border-radius: 1.5rem;
   display: flex;
@@ -19,6 +21,7 @@
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
 }
+
 
 .weatherLeft {
   display: flex;
@@ -80,7 +83,9 @@
   }
 }
 
-.dropBig,  .dropMedium,  .dropSmall {
+.dropBig,
+.dropMedium,
+.dropSmall {
   position: absolute;
   z-index: 20;
   left: 350px;
@@ -94,7 +99,9 @@
   transform-origin: 50% 100%;
 }
 
-.dropBig:before, .dropMedium:before,  .dropSmall:before {
+.dropBig:before,
+.dropMedium:before,
+.dropSmall:before {
   position: absolute;
   content: "";
   display: block;
@@ -106,7 +113,9 @@
   border-radius: 3px;
 }
 
-.dropBig:after, .dropMedium:after, .dropSmall:after  {
+.dropBig:after,
+.dropMedium:after,
+.dropSmall:after {
   position: absolute;
   content: "";
   display: block;
@@ -126,12 +135,14 @@
   animation: drop 1.5s linear 0.24s infinite;
   animation-fill-mode: both;
 }
+
 .dropMedium:before {
   top: -2px;
   left: 1px;
   width: 4px;
   height: 4px;
 }
+
 .dropMedium:after {
   top: -4px;
   left: 2px;
@@ -147,12 +158,14 @@
   animation: drop 2s linear 1.36s infinite;
   animation-fill-mode: both;
 }
+
 .dropSmall:before {
   top: -2px;
   left: 1px;
   width: 2px;
   height: 2px;
 }
+
 .dropSmall:after {
   top: -3px;
   left: 1px;
@@ -164,9 +177,11 @@
   0% {
     transform: translate3d(40px, -320px, 0) scaleX(1) scaleY(1) rotate(17deg);
   }
+
   85% {
     transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotate(17deg);
   }
+
   100% {
     transform: translate3d(0, 0, 0) scaleX(3) scaleY(0) rotate(0deg);
   }

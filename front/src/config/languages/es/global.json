@@ -47,5 +47,16 @@
     },
     "cvEnTextDownload": "Descargar PDF en inglés",
     "cvEsTextDownload": "Descargar PDF en español",
-    "githubDescription": "Explora mi GitHub para ver mi trabajo en desarrollo web."
+    "githubDescription": "Explora mi GitHub para ver mi trabajo en desarrollo web.",
+    "expDescription": "año de experiencia",
+    "expDescription2": "años de experiencia",
+    "discord": {
+        "add": "Agregame",
+        "loading": "Cargando...",
+        "dnd": "Ocupado",
+        "online": "En línea",
+        "offline": "Desconectado",
+        "since": "Desde"
+    },
+    "certificateTitle": "Desarollador FullStack"    
 }

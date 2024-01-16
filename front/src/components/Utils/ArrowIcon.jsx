@@ -13,7 +13,7 @@ export default function ArrowIcon() {
                 strokeWidth="0"
                 viewBox="0 0 16 16"
                 className={(pathname !== "/contact" && !pathname.startsWith("/projects"))
-                    ? "absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-white dark:text-[#ffffffaa] z-10 text-4xl"
+                    ? "absolute right-2 top-auto md:right-8 md:top-8 text-white dark:text-[#ffffffaa] z-10 text-4xl"
                     : "absolute left-4 bottom-4 top-8 md:left-8 md:top-8 text-white dark:text-[#ffffffaa] z-10 text-4xl rotate-180"}
                 height="1em"
                 width="1em"

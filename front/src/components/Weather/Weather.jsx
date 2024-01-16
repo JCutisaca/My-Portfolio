@@ -66,11 +66,11 @@ export default function Weather() {
       clearInterval(dropsInterval);
     }
   }, [])
-
+  
   return (
     <div className={styles.container}>
       <div className={`bg-[#089cffa4] ${styles.weatherContainer}`}>
-        {timeDescription?.includes("lluvia" || "rain") ? drops.map((drop, index) => (
+        {timeDescription?.includes("lluvia") || timeDescription?.includes("rain") ? drops.map((drop, index) => (
           <div
             key={index}
             className={styles[drop.size]}

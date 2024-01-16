@@ -14,6 +14,9 @@
     position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .githubInfo {
@@ -22,5 +25,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 1;
   }
   

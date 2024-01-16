@@ -1,11 +1,8 @@
 "use client"
-import styles from './ProjectsPage.module.css';
 import { useTranslation } from "react-i18next";
-import Theme from '@/components/Theme/Theme';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import ArrowIcon from '@/components/Utils/ArrowIcon';
-import Language from '@/components/Language/Language';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import { getAllProjects } from '@/apiRequests/getAllProjects';
 import { useSelector, useDispatch } from 'react-redux'
@@ -38,18 +35,17 @@ export default function ProjectsPage() {
 
     return (
         <>
-            <div className={styles.container}>
-                <Link
-                    href="/">
-                    <ArrowIcon></ArrowIcon>
-                </Link>
-                <div className="w-full col-span-3 md:col-span-4 aspect-2/1 md:aspect-auto flex justify-between items-center bg-[#1c053a9c] dark:bg-[#af72ff56] rounded-3xl overflow-hidden flex-col">
-                    <h1 className="text-white uppercase font-bold text-2xl md:text-5xl ml-4 flex gap-1 md:gap-4 justify-center items-center">
-                        {t("projectsTitle")}
-                    </h1>
-                </div>
+            <Link
+                href="/">
+                <ArrowIcon></ArrowIcon>
+            </Link>
+            <div className="container mx-auto mt-20 mb-8 aspect-2/1 md:aspect-auto flex justify-between items-center overflow-hidden flex-col w-[90%] xl:w-full">
+                <h1 className="text-white uppercase font-bold text-2xl md:text-5xl flex gap-1 md:gap-4 justify-center items-center bg-[#1c053a9c] dark:bg-[#af72ff56] rounded-3xl w-[100%] xl:w-[90%] xl:px-20">
+                    {t("projectsTitle")}
+                </h1>
             </div>
-            <div className="grid grid-cols-3 gap-8 md:grid-cols-3 md:gap-4 mb-5 w-[90%] mx-auto xl:w-full xl:px-20 ">
+            {/* </div> */}
+            <div className="container mx-auto grid grid-cols-3 gap-8 md:grid-cols-3 md:gap-4 mb-5 w-[90%] xl:w-full xl:px-20">
                 {allProjects?.map(({ id, name, descriptionEnglish, descriptionSpanish, image, website, gitHub, technologies }) => {
                     return (
                         <ProjectCard
@@ -65,8 +61,6 @@ export default function ProjectsPage() {
                         ></ProjectCard>
                     )
                 })}
-                <Language></Language>
-                <Theme></Theme>
             </div>
         </>
     )

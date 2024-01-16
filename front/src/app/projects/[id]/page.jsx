@@ -2,17 +2,20 @@
 import styles from './ProjectId.module.css'
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { motion } from "framer-motion";
 import { useTranslation } from 'react-i18next';
 import ExternalLinkIcon from '@/components/Utils/ExternalLinkIcon';
 import githubIcon from '@/assets/svg/githubIcon.svg'
 import Image from 'next/image';
+import { getAllProjects } from '@/apiRequests/getAllProjects';
+import { getProjects } from '@/redux/features/projectsSlice';
 
 export default function ProjectId({ params }) {
     const { id } = params;
     const router = useRouter();
     const [t, i18n] = useTranslation("global")
+    const dispatch = useDispatch();
 
     const [showModal, setShowModal] = useState(false);
     const projectsIds = useSelector(state => state.projectsReducer.projectsIds);
@@ -26,13 +29,28 @@ export default function ProjectId({ params }) {
         }
     }
 
+    const fetchAllProjects = async () => {
+        try {
+            const response = await getAllProjects();
+            if (projectsIds.length !== response.length) {
+                dispatch(getProjects(response))
+            }
+        } catch (error) {
+            console.log("error", error.message);
+        }
+    }
+
     useEffect(() => {
-        if (projectsIds.includes(id)) {
+        if (!projectsIds.length) {
+            fetchAllProjects()
+        }
+        if (projectsIds.length && projectsIds.includes(id)) {
             setShowModal(true)
-        } else {
+        }
+        if (projectsIds.length && !projectId?.id) {
             router.replace("/projects")
         }
-    }, [])
+    }, [projectsIds])
 
     return (
         <>

@@ -3,6 +3,7 @@ import ExternalLinkIcon from "../Utils/ExternalLinkIcon";
 import githubIcon from '@/assets/svg/githubIcon.svg'
 import { useTranslation } from "react-i18next";
 import styles from './GitHub.module.css'
+import cat3 from './cat3.gif'
 
 
 export default function GitHub() {
@@ -17,6 +18,8 @@ export default function GitHub() {
             className={styles.container}
         >
             <div className={`${styles.github} p-4 md:p-8 bg-[#00000077] dark:bg-[#1c053a9c]`}>
+                <Image alt="" className="absolute bg-[#0e0642]" src={cat3}></Image>
+
                 <ExternalLinkIcon></ExternalLinkIcon>
                 <div className={styles.githubInfo}>
                     <Image src={githubIcon} className="text-xs md:text-5xl hidden md:flex w-12 h-12" alt="GitHub" />
