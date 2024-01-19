@@ -10,7 +10,7 @@ const getCurrentTrack = async () => {
             limit: 1,
         });
         const result = recentTracks.body.items[0].track
-        return result.id
+        return result
 }
 
 module.exports = getCurrentTrack;
