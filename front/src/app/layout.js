@@ -3,13 +3,14 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import ProviderRedux from '@/redux/ProviderRedux'
 import ProjectsPage from './projects/ProjectsPage';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { initReactI18next, useTranslation } from 'react-i18next';
 import global_en from '@/config/languages/en/global.json'
 import global_es from '@/config/languages/es/global.json'
 import i18next from 'i18next';
 import { useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
+import LanguageProvider from '@/components/prueba/LanguageProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -55,8 +56,8 @@ export default function RootLayout({ children }) {
           defaultTheme="system"
         >
           <ProviderRedux>
-            {isProjectRoute && <ProjectsPage />}
-            {children}
+              {isProjectRoute && <ProjectsPage />}
+              {children}
           </ProviderRedux>
         </ThemeProvider>
       </body>

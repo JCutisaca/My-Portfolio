@@ -1,17 +1,18 @@
 import { useEffect, useState, useRef } from 'react'
 import styles from './Spotify.module.css'
-import { useTheme } from 'next-themes';
 import { getCurrentTrack } from '@/apiRequests/getCurrentTrack';
 import Image from 'next/image';
 import ButtonPause from '../Utils/ButtonPause';
 import ButtonPlay from '../Utils/ButtonPlay';
 import SpotifyIcon from './SpotifyIcon';
+import { useTranslation } from 'react-i18next';
 
 export default function SpotifyCard() {
     const audioRef = useRef(null);
     const [idTrack, setIdTrack] = useState();
     const [isPlaying, setIsPlaying] = useState(false);
     const [startTrack, setStartTrack] = useState(true);
+    const [t, i18n] = useTranslation("global");
 
     const handleState = () => {
         setIsPlaying((prev) => !prev);
@@ -63,7 +64,7 @@ export default function SpotifyCard() {
 
                 <div>
                     <p className="text-[#ffffff] font-bold text-xs lg:text-2xl md:text-xl">
-                        Recently listened
+                        {i18n.language === "en" ? "Recently listened" : "Recientemente escuchado" }
                     </p>
                     <div className="flex mb-2 flex-col">
                         <p className="text-[#ffffff] w-full xl:text-xl lg:text-lg text-xs font-semibold truncate">

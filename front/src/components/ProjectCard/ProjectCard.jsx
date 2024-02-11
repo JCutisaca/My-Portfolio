@@ -2,8 +2,11 @@ import { useTranslation } from "react-i18next";
 import styles from "./ProjectCard.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
-export default function ProjectCard({ id, name, descriptionEnglish, descriptionSpanish, image, website, gitHub, technologies }) {
+
+export default function ProjectCard({ id, name, descriptionEnglish, descriptionSpanish, image, technologies }) {
 
     const [t, i18n] = useTranslation("global");
     const router = useRouter()
@@ -12,29 +15,34 @@ export default function ProjectCard({ id, name, descriptionEnglish, descriptionS
         router.replace(`/projects/${id}`)
     }
 
+    const  { theme } = useTheme();
+    const textColor = theme === 'dark' ? 'text-white' : 'text-white';
+
     return (
-        <div onClick={handleClick} className={styles.container}>
-            <div className={`bg-[#1c053a9c] dark:bg-[#af72ff56] ${styles.card}`}>
-                <p className={styles.name}>{name}</p>
-                <p className={styles.description}>{i18n.language === "en" ? descriptionEnglish : descriptionSpanish}</p>
-                <div className={styles.containerTags}>
-                    {technologies?.map(technology => {
-                        return (
-                            <p key={technology} className={`${styles.tags} bg-[#000000aa]`} >{technology}</p>
-                        )
-                    })}
-                </div>
-                <div className={styles.containerImage}>
-                    <Image
-                        alt=""
-                        src={image}
-                        className={styles.image}
-                        width={1280}
-                        height={720}
-                        priority
-                    />
-                </div>
-            </div>
-        </div>
+            <motion.div
+                onClick={handleClick} className={styles.container}>
+                <motion.div
+                    className={`bg-[#1c053a9c] dark:bg-[#af72ff56] ${styles.card}`}>
+                    <p className={`${textColor} ${styles.name}`}>{name}</p>
+                    <p className={`${textColor} ${styles.description}`}>{i18n.language === "en" ? descriptionEnglish : descriptionSpanish}</p>
+                    <div className={styles.containerTags}>
+                        {technologies?.map(technology => {
+                            return (
+                                <p key={technology} className={`${textColor} ${styles.tags} bg-[#000000aa]`} >{technology}</p>
+                            )
+                        })}
+                    </div>
+                    <div className={styles.containerImage}>
+                        <Image
+                            alt=""
+                            src={image}
+                            className={styles.image}
+                            width={1280}
+                            height={720}
+                            priority
+                        />
+                    </div>
+                </motion.div>
+            </motion.div>
     )
 }
