@@ -16,6 +16,7 @@ import Certificates from "@/components/Certificates/Certificates";
 import Exp from "@/components/Exp/Exp";
 import Discord from "@/components/Discord/Discord";
 import Technologies from "@/components/Technologies/Technologies";
+import Resume from "@/components/Resume/Resume";
 
 export default function Home() {
 
@@ -43,6 +44,7 @@ export default function Home() {
           <Weather></Weather>
           <Technologies></Technologies>
           <Discord></Discord>
+          <Resume />
           <GitHub></GitHub>
           <Certificates></Certificates>
         </div>

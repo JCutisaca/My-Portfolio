@@ -11,7 +11,7 @@ export default function Age() {
   };
 
   return (
-    <div className="text-white rounded-3xl flex relative overflow-hidden aspect-square shadow-sm bg-[#8b0000] p-4 justify-center items-center">
+    <div className="text-white rounded-3xl flex relative overflow-hidden aspect-square shadow-sm bg-[#ff0000] p-4 justify-center items-center">
       <div className="">
         <div className="flex justify-center items-center flex-col">
           <p className="text-xs md:text-lg uppercase font">

@@ -34,7 +34,7 @@ export default function Theme() {
   };
 
   return (
-    <div className="flex justify-center items-center bg-[#1c053a9c] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm">
+    <div className="flex justify-center items-center bg-[#ffc219] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm">
       <label className={styles.switch}>
         <input type="checkbox"
           value={checked}

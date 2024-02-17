@@ -10,7 +10,6 @@ import global_es from '@/config/languages/es/global.json'
 import i18next from 'i18next';
 import { useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
-import LanguageProvider from '@/components/prueba/LanguageProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 

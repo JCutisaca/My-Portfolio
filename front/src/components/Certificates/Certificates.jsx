@@ -22,7 +22,6 @@ export default function PlatziCard() {
                     strokeWidth="0"
                     viewBox="0 0 24 24"
                     className="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-black dark:text-[#00000]"
-                    // className="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-black dark:text-[#ffffffaa]"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg">

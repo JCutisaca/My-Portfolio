@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import styles from './ContactForm.module.css';
 import 'react-quill/dist/quill.snow.css';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import { validateEmail, validateFullName, validateMessage, validateSubject } from '../Validation/ContactFormValidation';
 import { postContact } from '@/apiRequests/postContact';
 import Swal from 'sweetalert2';
+import { useTheme } from 'next-themes';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -36,24 +37,16 @@ export default function ContactForm() {
     };
 
     const handleBlurFullName = () => {
-        // setTimeout(() => {
-            validateFullName(form, setErrors, errors)
-        // }, 1000)
+        validateFullName(form, setErrors, errors)
     }
     const handleBlurEmail = () => {
-        // setTimeout(() => {
-            validateEmail(form, setErrors, errors)
-        // }, 1000)
+        validateEmail(form, setErrors, errors)
     }
     const handleBlurSubject = () => {
-        // setTimeout(() => {
-            validateSubject(form, setErrors, errors)
-        // }, 1000)
+        validateSubject(form, setErrors, errors)
     }
     const handleBlurMessage = () => {
-        // setTimeout(() => {
-            validateMessage(form, setErrors, errors)
-        // }, 1000)
+        validateMessage(form, setErrors, errors)
     }
 
     const handleMessage = (value) => {
@@ -119,7 +112,10 @@ export default function ContactForm() {
 
     useEffect(() => {
         setInterval(() => {
-
+            const textareaQuill = document.querySelector('.ql-editor');
+            if (textareaQuill) {
+                textareaQuill.style.height = '6rem';
+            }
             const buttons = document.querySelectorAll('.ql-toolbar button');
             const alignButton = document.querySelector('.ql-toolbar span.ql-align');
             const alignOptions = document.querySelectorAll('.ql-toolbar .ql-align .ql-picker-item');
@@ -165,39 +161,46 @@ export default function ContactForm() {
         }, 3000)
     }, [i18n.language]);
 
+    const { theme } = useTheme();
+    const textColor = theme === 'dark' ? 'bg-white text-black' : 'bg-white text-black';
+    const text = theme === 'dark' ? 'text-white' : 'text-black';
+    const bgColor = theme === 'dark' ? 'bg-[#1c053a9c]' : 'bg-[#e5d599]';
+
     return (
-        <div className={styles.containerForm}>
+        <div className={`${bgColor} ${text} ${styles.containerForm}`}>
             <form onSubmit={handleSubmit} className={styles.form}>
-                <label htmlFor="name">{t("contact.name")}:</label>
-                <input maxLength="30" value={form.fullName} onBlur={handleBlurFullName} onChange={handleChange} type="text" id="fullName" name="fullName" required />
+                <label htmlFor="name">{t("contact.name")}*:</label>
+                <input className={textColor} maxLength="30" value={form.fullName} onBlur={handleBlurFullName} onChange={handleChange} type="text" id="fullName" name="fullName" required />
                 {errors.fullName ? <p className={styles.errorMessage}>{t(`${errors.fullName}`)}</p> : <p>&nbsp;</p>}
-                <label htmlFor="email">{t("contact.email")}:</label>
-                <input maxLength="50" value={form.email} onBlur={handleBlurEmail} onChange={handleChange} type="email" id="email" name="email" required />
+                <label htmlFor="email">{t("contact.email")}*:</label>
+                <input className={textColor} maxLength="50" value={form.email} onBlur={handleBlurEmail} onChange={handleChange} type="email" id="email" name="email" required />
                 {errors.email ? <p className={styles.errorMessage}>{t(`${errors.email}`)}</p> : <p>&nbsp;</p>}
-                <label htmlFor="subject">{t("contact.subject")}:</label>
-                <input autoComplete='off' maxLength="30" value={form.subject} onBlur={handleBlurSubject} onChange={handleChange} type="text" id="subject" name="subject" required />
+                <label htmlFor="subject">{t("contact.subject")}*:</label>
+                <input className={textColor} autoComplete='off' maxLength="30" value={form.subject} onBlur={handleBlurSubject} onChange={handleChange} type="text" id="subject" name="subject" required />
                 {errors.subject ? <p className={styles.errorMessage}>{t(`${errors.subject}`)}</p> : <p>&nbsp;</p>}
-                <label htmlFor="message">{t("contact.message")}:</label>
-                <ReactQuill
-                    className={`${styles.message} bg-[#282828] dark:bg-[#282828] color-[#282828] dark:color-[#FFF]`}
-                    theme="snow"
-                    value={form.message}
-                    onBlur={handleBlurMessage}
-                    onChange={handleMessage}
-                    modules={{
-                        toolbar: [
-                            'bold',
-                            'italic',
-                            'underline',
-                            { 'align': ['', 'center', 'right'] },
-                            { 'list': 'ordered' },
-                            { 'list': 'bullet' },
-                            'blockquote',
-                            'strike',
-                            'clean'
-                        ]
-                    }}
-                />
+                <label htmlFor="message">{t("contact.message")}*:</label>
+                <Suspense>
+                    <ReactQuill
+                        className={`${textColor}`}
+                        theme="snow"
+                        value={form.message}
+                        onBlur={handleBlurMessage}
+                        onChange={handleMessage}
+                        modules={{
+                            toolbar: [
+                                'bold',
+                                'italic',
+                                'underline',
+                                { 'align': ['', 'center', 'right'] },
+                                { 'list': 'ordered' },
+                                { 'list': 'bullet' },
+                                'blockquote',
+                                'strike',
+                                'clean'
+                            ]
+                        }}
+                    />
+                </Suspense>
                 {errors.message ? <p className={styles.errorMessage}>{t(`${errors.message}`)}</p> : <p>&nbsp;</p>}
                 <div className={styles.containerButton}>
                     <button disabled={!validateSubmit() || validateErrors()} className={styles.submit} type="submit">{t("contact.submit")}</button>

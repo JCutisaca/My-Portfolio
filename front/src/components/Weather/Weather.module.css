@@ -6,6 +6,7 @@
   position: relative;
   overflow: hidden;
   grid-column: span 2;
+  background-color: #ffc219;
 }
 
 .weatherContainer {

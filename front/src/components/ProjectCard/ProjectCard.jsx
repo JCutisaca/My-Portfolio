@@ -17,12 +17,13 @@ export default function ProjectCard({ id, name, descriptionEnglish, descriptionS
 
     const  { theme } = useTheme();
     const textColor = theme === 'dark' ? 'text-white' : 'text-white';
+    const bgColor = theme === 'dark' ? 'bg-[#af72ff56]' : 'bg-[#f07c19]';
 
     return (
             <motion.div
                 onClick={handleClick} className={styles.container}>
                 <motion.div
-                    className={`bg-[#1c053a9c] dark:bg-[#af72ff56] ${styles.card}`}>
+                    className={`${bgColor} ${styles.card}`}>
                     <p className={`${textColor} ${styles.name}`}>{name}</p>
                     <p className={`${textColor} ${styles.description}`}>{i18n.language === "en" ? descriptionEnglish : descriptionSpanish}</p>
                     <div className={styles.containerTags}>

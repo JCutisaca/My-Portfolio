@@ -7,9 +7,7 @@ import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import { getAllProjects } from '@/apiRequests/getAllProjects';
 import { useSelector, useDispatch } from 'react-redux'
 import { getProjects } from '@/redux/features/projectsSlice';
-import { AnimatePresence, motion } from "framer-motion";
-import Language from "@/components/Language/Language";
-import Theme from "@/components/Theme/Theme";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 
@@ -47,6 +45,7 @@ export default function ProjectsPage() {
 
     const  { theme } = useTheme();
     const textColor = theme === 'dark' ? 'text-white' : 'text-white';
+    const bgColor = theme === 'dark' ? 'bg-[#af72ff56]' : 'bg-[#f07c19]'; // bg-[#f07c19] dark:bg-[#af72ff56]
 
     return (
         <>
@@ -61,7 +60,7 @@ export default function ProjectsPage() {
                     </Link>
                 ) : null}
                 <div className="container mx-auto mt-20 mb-8 aspect-2/1 md:aspect-auto flex justify-between items-center overflow-hidden flex-col w-[90%] xl:w-full">
-                    <h1 className={`${textColor} uppercase font-bold text-2xl md:text-5xl flex gap-1 md:gap-4 justify-center items-center bg-[#1c053a9c] dark:bg-[#af72ff56] rounded-3xl w-[100%] xl:w-[90%] xl:px-20`}>
+                    <h1 className={`${textColor} ${bgColor} uppercase font-bold text-2xl md:text-5xl flex gap-1 md:gap-4 justify-center items-center rounded-3xl w-[100%] xl:w-[90%] xl:px-20`}>
                         {t("projectsTitle")}
                     </h1>
                 </div>
@@ -80,8 +79,6 @@ export default function ProjectsPage() {
                             ></ProjectCard>
                         )
                     })}
-                    <Language />
-                    <Theme />
                 </div>
             </motion.div >
         </>
