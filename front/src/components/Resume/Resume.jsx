@@ -14,7 +14,7 @@ export default function Resume() {
             <p className="text-center capitalize text-white text-xs md:text-lg lg:text-2xl font-semibold lg:mb-0">
                 {t("cvTextDownload")}
             </p>
-            <Image className="hidden md:flex w-8" src={downloadIcon}></Image>
+            <Image alt="Icon Download" className="hidden md:flex w-8" src={downloadIcon}></Image>
             <div className="relative -top-4 sm:top-0 text-center w-full h-full flex flex-col md:flex-row justify-between items-center">
                 <a className="text-xs text-white md:text-md lg:text-lg xl-text-xl" href={file} download>
                     {t("cvTextEn")}

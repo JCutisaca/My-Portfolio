@@ -19,7 +19,7 @@ export default function GitHub() {
             <>
                 <ExternalLinkIcon></ExternalLinkIcon>
             </>
-            <Image src={githubIcon} className="w-1/5 md:m-4" alt="" />
+            <Image src={githubIcon} className="w-1/5 md:m-4" alt="GitHub Icon" />
             <div className="relative -top-4 sm:top-0 text-center">
                 <p className="capitalize text-white text-xs md:text-lg lg:text-2xl font-semibold lg:mb-0">
                     GitHub

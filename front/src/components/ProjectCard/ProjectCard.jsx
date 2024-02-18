@@ -35,7 +35,7 @@ export default function ProjectCard({ id, name, descriptionEnglish, descriptionS
                     </div>
                     <div className={styles.containerImage}>
                         <Image
-                            alt=""
+                            alt={name}
                             src={image}
                             className={styles.image}
                             width={1280}

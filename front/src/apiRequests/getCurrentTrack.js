@@ -2,7 +2,8 @@ import axios from "axios"
 
 export const getCurrentTrack = async () => {
     try {
-        const { data } = await axios("http://localhost:3001/spotify/track")
+        const BACK = process.env.NEXT_PUBLIC_BACK;
+        const { data } = await axios(`${BACK}/spotify/track`)
         return data
     } catch (error) {
         console.log(error);

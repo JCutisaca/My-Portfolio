@@ -10,7 +10,7 @@ export default function Contact() {
             href="/contact"
             className={`${styles.container}`}>
             <ArrowIcon className={styles.prueba} ></ArrowIcon>
-            <Image className={styles.icon} src={email} alt=''></Image>
+            <Image className={styles.icon} src={email} alt="Contact"></Image>
         </Link>
     )
 }

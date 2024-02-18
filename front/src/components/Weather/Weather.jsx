@@ -1,3 +1,4 @@
+"use client"
 import { getCurrentWeather } from "@/apiRequests/getCurrentWeather";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -45,14 +46,16 @@ export default function Weather() {
 
   const verifyGeoLocation = async () => {
     try {
-      const permission = await navigator.permissions.query({ name: 'geolocation' });
+      if (typeof navigator !== 'undefined') {
+        const permission = await navigator.permissions.query({ name: 'geolocation' });
 
-      if (permission.state === 'granted') {
-        setGeoLocation(true)
-      } else if (permission.state === 'prompt') {
-        setGeoLocation(false)
-      } else {
-        setGeoLocation(false)
+        if (permission.state === 'granted') {
+          setGeoLocation(true)
+        } else if (permission.state === 'prompt') {
+          setGeoLocation(false)
+        } else {
+          setGeoLocation(false)
+        }
       }
     } catch (error) {
       console.error('Error:', error);
@@ -137,7 +140,7 @@ export default function Weather() {
               height={100}
               className={styles.imageWeather}
               draggable="false"
-              alt=""
+              alt="Icon Weather"
             />
           </div>
           <p className="capitalize text-xs md:text-2xl lg:text-2xl font-semibold lg:mb-0">

@@ -2,7 +2,8 @@ import axios from "axios"
 
 export const getAllProjects = async () => {
     try {
-        const { data } = await axios("http://localhost:3001/projects/")
+        const BACK = process.env.NEXT_PUBLIC_BACK;
+        const { data } = await axios(`${BACK}/projects/`)
         return data
     } catch (error) {
         console.log(error);

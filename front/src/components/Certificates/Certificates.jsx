@@ -30,7 +30,7 @@ export default function PlatziCard() {
                     </path>
                 </svg>
             </>
-            <Image src={soyHenry} className="w-1/3" alt="" />
+            <Image src={soyHenry} className="w-1/3" alt="Soy Henry" />
             <div className="relative -top-4 sm:top-0 text-center">
                 <p className="capitalize text-black text-xs md:text-lg lg:text-2xl font-semibold lg:mb-0">
                     {t("certificateTitle")}

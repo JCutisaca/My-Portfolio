@@ -75,7 +75,7 @@ export default function Discord() {
                             width="40"
                             height="40"
                             draggable="false"
-                            alt=""
+                            alt="Icon Discord"
                         />
                     )}
                 </div>
