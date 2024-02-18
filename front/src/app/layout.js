@@ -43,9 +43,11 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <html lang="en">
+    <html lang={i18n.language}>
       <head>
         <title>Jhonathan Cutisaca</title>
+        <meta name="description" content="Jhonathan Cutisaca's portfolio showcasing web development and design projects. Explore my work and creative skills. Welcome!" />
+        <link rel="icon" href="/images/me.png" />
       </head>
       <body className={`${inter.className}`}>
         <ThemeProvider
