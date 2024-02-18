@@ -10,6 +10,7 @@ const sequelize = new Sequelize(DB_DEPLOY, {
     // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/portfolio`, {
     logging: false,
     native: false,
+    dialectModule: require('pg')
 });
 
 const basename = path.basename(__filename);
