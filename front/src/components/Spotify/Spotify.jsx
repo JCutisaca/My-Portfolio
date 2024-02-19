@@ -76,7 +76,7 @@ export default function SpotifyCard() {
                                 : idTrack?.artists[0].name}
                         </p>
                     </div>
-                    <div id="audiovisual" className={styles.audiovisual}>
+                    {idTrack?.preview_url ? <div id="audiovisual" className={styles.audiovisual}>
                         <div onClick={() => { handleTogglePlay(), handleState() }} className="cursor-pointer text-white text-xl">
                             {isPlaying ? <ButtonPause /> : <ButtonPlay />}
                         </div>
@@ -89,19 +89,19 @@ export default function SpotifyCard() {
                         <div className={`${styles.audiowire} ${isPlaying ? styles.audioPlay : styles.audioPause} ${startTrack ? styles.audioReset : ""}`} id="audio7"></div>
                         <div className={`${styles.audiowire} ${isPlaying ? styles.audioPlay : styles.audioPause} ${startTrack ? styles.audioReset : ""}`} id="audio8"></div>
                         <div className={`${styles.audiowire} ${isPlaying ? styles.audioPlay : styles.audioPause} ${startTrack ? styles.audioReset : ""}`} id="audio9"></div>
-                    </div>
+                    </div> : ""}
 
                     <audio ref={audioRef} src={idTrack?.preview_url} id="music" onEnded={() => { handleState(), resetStartTrack() }}>
                     </audio>
                 </div>
-                <Image
+                {idTrack?.album.images[0]?.url &&<Image
                     src={idTrack?.album.images[0].url}
                     alt={idTrack?.name || "Song Spotify"}
                     width={idTrack?.album.images[0].width}
                     height={idTrack?.album.images[0].height}
                     className="absolute w-full h-full top-0 left-0 object-cover object-center z-[-1] transition-all duration-300 ease-in-out"
-                    loading="lazy"
-                />
+                    priority
+                />}
             </div>
         </>
     )

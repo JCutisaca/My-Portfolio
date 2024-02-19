@@ -15,6 +15,8 @@ export default function ContactForm() {
 
     const [t, i18n] = useTranslation("global");
 
+    const [bgColor, setBgColor] = useState();
+
     const [form, setForm] = useState({
         fullName: "",
         email: "",
@@ -164,7 +166,14 @@ export default function ContactForm() {
     const { theme } = useTheme();
     const textColor = theme === 'dark' ? 'bg-white text-black' : 'bg-white text-black';
     const text = theme === 'dark' ? 'text-white' : 'text-black';
-    const bgColor = theme === 'dark' ? 'bg-[#1c053a9c]' : 'bg-[#e5d599]';
+
+    useEffect(() => {
+        if(theme === "dark") {
+            setBgColor("bg-[#00557e73]")
+        } else {
+            setBgColor("bg-[#e5d599]")
+        }
+    }, [theme])
 
     return (
         <div className={`${bgColor} ${text} ${styles.containerForm}`}>

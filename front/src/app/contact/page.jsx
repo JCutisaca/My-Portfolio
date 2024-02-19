@@ -5,13 +5,22 @@ import ContactForm from '@/components/ContactForm/ContactForm';
 import Link from 'next/link';
 import ArrowIcon from '@/components/Utils/ArrowIcon';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function ContactPage() {
 
   const [t, i18n] = useTranslation("global");
+  const [bgColor, setBgColor] = useState()
 
   const { theme } = useTheme();
-  const bgColor = theme === 'dark' ? 'bg-[#1c053a9c]' : 'bg-[#e5d599]';
+
+  useEffect(() => {
+    if(theme === "dark") {
+      setBgColor("bg-[#00557e73]")
+    } else {
+      setBgColor("bg-[#e5d599]")
+    }
+  }, [theme])
 
   return (
     <div className={styles.container}>

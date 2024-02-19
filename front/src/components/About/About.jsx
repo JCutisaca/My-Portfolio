@@ -2,11 +2,24 @@ import Image from 'next/image'
 import styles from './About.module.css'
 import me from '@/assets/images/me.png'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function About() {
-  const [t, i18n] = useTranslation("global")
+  const [t, i18n] = useTranslation("global");
+  const [bg, setBg] = useState();
+  const {theme} = useTheme();
+
+  useEffect(() => {
+    if(theme === "dark") {
+      setBg("bg-[#00557e73]")
+    } else {
+      setBg("bg-[#1c053a9c]")
+    }
+  }, [theme])
+
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${bg}`}>
       <div className={styles.water}></div>
       <Image
         src={me}

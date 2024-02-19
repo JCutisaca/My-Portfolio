@@ -4,15 +4,12 @@
   border-radius: 1.5rem;
   overflow: hidden;
   grid-column: span 3/span 3;
-  background-color: #1c053a9c;
+
   @media (min-width: 768px) {
     aspect-ratio: auto;
     grid-row: span 2/span 2;
   }
 
-  @media (prefers-color-scheme: dark) {
-    background-color: #af72ff56;
-  }
 }
 
 

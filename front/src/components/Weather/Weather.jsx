@@ -25,10 +25,10 @@ export default function Weather() {
     return currentTime
   }
 
-  const handleTimeLondon = () => {
-    const dateLondon = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
-    const timeLondon = dateLondon.split(' ')[1];
-    return timeLondon;
+  const handleTimeArg = () => {
+    const options = { timeZone: 'America/Argentina/Buenos_Aires', hour12: false, hour: '2-digit', minute: '2-digit' };
+    const timeBuenosAires = new Date().toLocaleTimeString('en-US', options);
+    return timeBuenosAires;
   };
 
   const generateDrops = () => {
@@ -69,7 +69,7 @@ export default function Weather() {
       if (geoLocation) {
         setTime(handleTime())
       } else {
-        setTime(handleTimeLondon())
+        setTime(handleTimeArg())
       }
     }, 1000)
 
@@ -82,8 +82,8 @@ export default function Weather() {
           setDataWeather(response)
         }, () => {
           const fallbackWeather = async () => {
-            const lat = 51.509865;
-            const lon = -0.118092;
+            const lat = -34.573603;
+            const lon = -58.414774;
             const response = await getCurrentWeather(lat, lon);
             setDataWeather(response);
           };
@@ -92,8 +92,8 @@ export default function Weather() {
       )
     } else {
       const fallbackWeather = async () => {
-        const lat = 51.509865;
-        const lon = -0.118092;
+        const lat = -34.573603;
+        const lon = -58.414774;
         const response = await getCurrentWeather(lat, lon);
         setDataWeather(response);
       };

@@ -9,8 +9,17 @@ import { useEffect, useState } from "react";
 export default function ArrowIcon() {
     const pathname = usePathname();
     const  { theme } = useTheme();
-    const textColor = theme === 'dark' ? 'white' : 'black';
+    const [textColor, setTextColor] = useState();
     const isSpecialRoute = pathname === "/contact" || pathname.startsWith("/projects");
+    
+    useEffect(() => {
+        if(theme === "dark") {
+            setTextColor("white")
+        } else {
+            setTextColor("black")
+        }
+    }, [theme])
+
     return (
         <div>
             <svg

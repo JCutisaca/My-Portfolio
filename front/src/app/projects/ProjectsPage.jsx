@@ -17,7 +17,9 @@ export default function ProjectsPage() {
 
     const [t, i18n] = useTranslation("global");
 
-    const allProjects = useSelector(state => state?.projectsReducer?.allProjects)
+    const allProjects = useSelector(state => state?.projectsReducer?.allProjects);
+
+    const [stylePage, setStylePage] = useState();
 
     const dispatch = useDispatch();
 
@@ -47,6 +49,14 @@ export default function ProjectsPage() {
     const textColor = theme === 'dark' ? 'text-white' : 'text-white';
     const bgColor = theme === 'dark' ? 'bg-[#af72ff56]' : 'bg-[#f07c19]';
 
+    useEffect(() => {
+        if(theme === "dark") {
+            setStylePage("bg-[#af72ff56]")
+        } else {
+            setStylePage("bg-[#f07c19]")
+        }
+    }, [theme])
+
     return (
         <>
             <motion.div initial="closed"
@@ -60,7 +70,7 @@ export default function ProjectsPage() {
                     </Link>
                 ) : null}
                 <div className="container mx-auto mt-20 mb-8 aspect-2/1 md:aspect-auto flex justify-between items-center overflow-hidden flex-col w-[90%] xl:w-full">
-                    <h1 className={`${textColor} ${bgColor} uppercase font-bold text-2xl md:text-5xl flex gap-1 md:gap-4 justify-center items-center rounded-3xl w-[100%] xl:w-[90%] xl:px-20`}>
+                    <h1 className={`${textColor} ${stylePage} uppercase font-bold text-2xl md:text-5xl flex gap-1 md:gap-4 justify-center items-center rounded-3xl w-[100%] xl:w-[90%] xl:px-20`}>
                         {t("projectsTitle")}
                     </h1>
                 </div>
