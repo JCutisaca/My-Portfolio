@@ -17,7 +17,7 @@ export default function ProjectsPage() {
 
     const [t, i18n] = useTranslation("global");
 
-    const allProjects = useSelector(state => state.projectsReducer.allProjects)
+    const allProjects = useSelector(state => state?.projectsReducer?.allProjects)
 
     const dispatch = useDispatch();
 
@@ -45,14 +45,14 @@ export default function ProjectsPage() {
 
     const  { theme } = useTheme();
     const textColor = theme === 'dark' ? 'text-white' : 'text-white';
-    const bgColor = theme === 'dark' ? 'bg-[#af72ff56]' : 'bg-[#f07c19]'; // bg-[#f07c19] dark:bg-[#af72ff56]
+    const bgColor = theme === 'dark' ? 'bg-[#af72ff56]' : 'bg-[#f07c19]';
 
     return (
         <>
             <motion.div initial="closed"
                 animate="open"
                 exit="closed"
-                variants={variants} //exit={{ opacity: 0 }}
+                variants={variants}
             >
                 {pathname === "/contact" || pathname === "/projects" ? (
                     <Link href="/">

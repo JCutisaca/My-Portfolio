@@ -69,7 +69,7 @@ export default function ProjectId({ params }) {
                                 className={`w-full h-full rounded-3xl p-4 ${bgColor}`}
                                 style={{ border: '4px solid #51b4b3aa' }} // bg-[#f8efff] dark:bg-[#09030e]
                             >
-                                <div className="rrelative rounded-3xl w-full h-full p-4 md:p-8 overflow-y-scroll">
+                                <div className="relative rounded-3xl w-full h-full md:p-8 overflow-y-scroll">
                                     <div className="absolute right-6 top-6 md:right-10 md:top-10 cursor-pointer">
                                         <i className="fa-solid fa-xmark text-3xl"></i>
                                     </div>
@@ -98,7 +98,7 @@ export default function ProjectId({ params }) {
                                         <a href={projectId.website}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`${textColor} underline truncate w-fit`}>
+                                            className={`${textColor} underline truncate md:w-fit`}>
                                             {projectId.website}
                                         </a>
                                     </div>
@@ -109,7 +109,7 @@ export default function ProjectId({ params }) {
                                         <a href={projectId.gitHub}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`${textColor} underline truncate  w-fit`}>
+                                            className={`${textColor} underline truncate md:w-fit`}>
                                             {projectId.gitHub}
                                         </a>
                                     </div>
