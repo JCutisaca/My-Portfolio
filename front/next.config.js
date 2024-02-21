@@ -10,6 +10,9 @@ const nextConfig = {
             },
             {
                 hostname: 'i.scdn.co',
+            },
+            {
+                hostname: 'images.prismic.io',
             }
         ],
     },
