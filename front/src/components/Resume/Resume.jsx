@@ -5,8 +5,8 @@ import downloadIcon from '@/assets/svg/download.svg'
 
 export default function Resume() {
     const [t, i18n] = useTranslation("global");
-    const file = "/pdf/CV.pdf";
-    const fileEs = "/pdf/CV_ES.pdf";
+    const file = "/pdf/Resume_Jhonathan_Cutisaca.pdf";
+    const fileEs = "/pdf/Cv_Jhonathan_Cutisaca.pdf";
     return (
         <div
             className="gap-6 md:gap-0 relative justify-around md:justify-normal flex flex-col aspect-square items-center gap-4 p-3 md:p-7 lg:p-8 rounded-3xl col-span-1 overflow-hidden bg-[#436850] transition duration-300 ease-in-out"
