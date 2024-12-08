@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <html lang={i18n.language}>
+    <html lang={i18n.language} translate="no">
       <head>
         <title>Jhonathan Cutisaca</title>
         <meta name="description" content="Jhonathan Cutisaca's portfolio showcasing web development and design projects. Explore my work and creative skills. Welcome!" />
