@@ -10,6 +10,7 @@ import global_es from '@/config/languages/es/global.json'
 import i18next from 'i18next';
 import { useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -48,14 +49,7 @@ export default function RootLayout({ children }) {
         <title>Jhonathan Cutisaca</title>
         <meta name="description" content="Jhonathan Cutisaca's portfolio showcasing web development and design projects. Explore my work and creative skills. Welcome!" />
         <link rel="icon" href="/images/me.png" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBNTKZR181"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'G-KBNTKZR181');
-        </script>
+        <GoogleAnalytics />
       </head>
       <body className={`${inter.className}`}>
         <ThemeProvider
@@ -69,6 +63,7 @@ export default function RootLayout({ children }) {
           </ProviderRedux>
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-KBNTKZR181" />
     </html>
   )
 }
