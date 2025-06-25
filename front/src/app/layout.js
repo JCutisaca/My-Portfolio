@@ -49,7 +49,6 @@ export default function RootLayout({ children }) {
         <title>Jhonathan Cutisaca</title>
         <meta name="description" content="Jhonathan Cutisaca's portfolio showcasing web development and design projects. Explore my work and creative skills. Welcome!" />
         <link rel="icon" href="/images/me.png" />
-        <GoogleAnalytics />
       </head>
       <body className={`${inter.className}`}>
         <ThemeProvider
