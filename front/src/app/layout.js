@@ -48,6 +48,14 @@ export default function RootLayout({ children }) {
         <title>Jhonathan Cutisaca</title>
         <meta name="description" content="Jhonathan Cutisaca's portfolio showcasing web development and design projects. Explore my work and creative skills. Welcome!" />
         <link rel="icon" href="/images/me.png" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBNTKZR181"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+
+          gtag('config', 'G-KBNTKZR181');
+        </script>
       </head>
       <body className={`${inter.className}`}>
         <ThemeProvider
